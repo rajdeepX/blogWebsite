@@ -35,6 +35,7 @@ const Navbar = () => {
       <nav>
         {username ? (
           <>
+            <span style={{ fontWeight: "bold" }}>Hello, {username}</span>
             <Link to={"/create"}>Create New Post</Link>
             <Link onClick={logout}>Logout</Link>
           </>

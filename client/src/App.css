@@ -128,7 +128,7 @@ form.create button {
 .post-page .image {
   display: flex;
   justify-content: center;
-  margin: 30px 0;
+  margin: 10px 0 30px 0;
   max-height: 300px;
 }
 
@@ -154,4 +154,24 @@ form.create button {
   font-size: 0.75rem;
   color: #888;
   margin: -5px 0;
+}
+
+.edit {
+  background-color: #888;
+  margin: 15px 0;
+  width: fit-content;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 5px;
+}
+.edit-btn {
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+.edit svg {
+  width: 20px;
+  color: #fff;
 }
