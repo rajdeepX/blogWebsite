@@ -1,25 +1,23 @@
-const Article = () => {
+import { formatISO9075 } from "date-fns";
+import { Link } from "react-router-dom";
+
+const Article = ({ _id, title, summary, createdAt, image, author }) => {
   return (
     <article>
       <div className="img">
-        <img
-          src="https://techcrunch.com/wp-content/uploads/2016/12/electron-blockchain.jpg?w=730&crop=1"
-          alt="image"
-        />
+        <Link to={`/post/${_id}`}>
+          <img src={"http://localhost:3000/" + image} alt="image" />
+        </Link>
       </div>
       <div className="text">
-        <h2>
-          Chainlink co-founder wants web3 to provide cryptographic guarantees to
-          the world
-        </h2>
+        <Link to={`/post/${_id}`}>
+          <h2>{title}</h2>
+        </Link>
         <p className="info">
-          <a href="#">Rajdeep Dutta</a>
-          <time>21st May 2023 08:40</time>
+          <a href="#">{author.username}</a>
+          <time>{formatISO9075(new Date(createdAt))}</time>
         </p>
-        <p className="summary">
-          Chainlink co-founder wants web3 to provide cryptographic guarantees to
-          the world
-        </p>
+        <p className="summary">{summary}</p>
       </div>
     </article>
   );

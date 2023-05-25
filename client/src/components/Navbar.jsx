@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import CustomContext from "../CustomContext";
 
 const Navbar = () => {
-  const [username, setUsername] = useState(null);
+  const { setUserInfo, userInfo } = useContext(CustomContext);
 
   const fetchProfile = async () => {
     const response = await fetch("http://localhost:3000/profile", {
       credentials: "include",
     });
     const userInfo = await response.json();
-    setUsername(userInfo.username);
+    setUserInfo(userInfo);
   };
 
   useEffect(() => {
@@ -21,8 +22,10 @@ const Navbar = () => {
       credentials: "include",
       method: "POST",
     });
-    setUsername(null);
+    setUserInfo(null);
   };
+
+  const username = userInfo?.username;
 
   return (
     <header>
@@ -33,7 +36,7 @@ const Navbar = () => {
         {username ? (
           <>
             <Link to={"/create"}>Create New Post</Link>
-            <a onClick={logout}>Logout</a>
+            <Link onClick={logout}>Logout</Link>
           </>
         ) : (
           <>

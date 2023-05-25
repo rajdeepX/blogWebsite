@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Navbar from "../components/Navbar";
 import { Navigate } from "react-router-dom";
+import CustomContext from "../CustomContext";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
+  const { setUserInfo } = useContext(CustomContext);
 
   const options = {
     method: "POST",
@@ -16,7 +18,11 @@ const Login = () => {
 
   const fetchApi = async () => {
     const response = await fetch("http://localhost:3000/login", options);
+    // await response.json();
+    // console.log(response);
     if (response.ok) {
+      const userInfo = await response.json();
+      setUserInfo(userInfo);
       setRedirect(true);
     } else {
       alert("Wrong credentials!");
