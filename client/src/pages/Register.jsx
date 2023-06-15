@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
+import "./Form.css";
 
 const Register = () => {
   const [username, setUsername] = useState("");

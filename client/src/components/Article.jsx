@@ -1,5 +1,6 @@
 import { formatISO9075 } from "date-fns";
 import { Link } from "react-router-dom";
+import "./Article.css";
 
 const Article = ({ _id, title, summary, createdAt, image, author }) => {
   return (

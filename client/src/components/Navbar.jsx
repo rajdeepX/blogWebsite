@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import CustomContext from "../CustomContext";
+import "./Navbar.css";
 
 const Navbar = () => {
   const { setUserInfo, userInfo } = useContext(CustomContext);
@@ -30,7 +31,7 @@ const Navbar = () => {
   return (
     <header>
       <Link to={"/"} className="logo">
-        MyBlog
+        blogSite
       </Link>
       <nav>
         {username ? (

@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { Link, useParams } from "react-router-dom";
 import { formatISO9075 } from "date-fns";
 import CustomContext from "../CustomContext";
+import "./PostPage.css";
 
 const PostPage = () => {
   const [postInfo, setPostInfo] = useState(null);
